@@ -29,13 +29,15 @@ wkwfilms_verbose = []
 for i in range(len(wkw_results['data']['filmography']['director'])):
     movie_name = wkw_results['data']['filmography']['director'][i]
     # wkwfilms.append(movie_name[0]['title'])
-    print(movie_name)
+    # print(movie_name)
     # you don't need to specify int index in movie_name because
     # there is only a single movie returned, rather than a list of lists.
     wkwfilms_name.append(movie_name['title'])
     # this
-    wkwfilms_verbose.append(movie_name)
-
+    # wkwfilms_verbose.append(ia.get_movie(movie_name.movieID))
+    # wkwfilms_verbose.append(ia.get_movie(movie_name.movieID))
+    print(ia.get_movie(movie_name.movieID))
+    # wkwfilms_verbose.append(movie_name.movieID)
 print(wkwfilms_name)
 
 # creating pandas dataframe with wkwfilms list
@@ -54,5 +56,11 @@ df.to_excel('wkw-filmography.xlsx', sheet_name = 'test')
 # 5. make new pandas dataframe
 # 6. put into excel
 
-for i in wkwfilms_verbose:
-    print(i)
+masterDict = {}
+
+pp.pprint(wkwfilms_verbose)
+
+# for i in wkwfilms_verbose:
+    # masterDict[i['actors']] = 0
+
+# pp.pprint(masterDict)

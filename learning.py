@@ -34,69 +34,71 @@ itmflList = []
 wildList = []
 two046List = []
 
-for actor in fa1995['actors']:
-    # print(actor['name'])
-    # counter+=1
-    # people = ia.search_person(actor['name'])
-    faList.append(actor['name'])
-    masterList.append(actor['name'])
-    # print(people[0]['name'] + ': ' + people[0].personID)
-    # if counter == len(itmfl['actors']):
+print(chungking)
 
-# print("Chungking Express:")
-for actor in chungking['actors']:
-    theName = actor['name']
-    masterList.append(theName)
-    chungList.append(theName)
-
-for actor in hppytgt['actors']:
-    theName = actor['name']
-    masterList.append(theName)
-    hppyList.append(theName)
-
-for actor in itmfl['actors']:
-    theName = actor['name']
-    masterList.append(theName)
-    itmflList.append(theName)
-
-for actor in wild['actors']:
-    theName = actor['name']
-    masterList.append(theName)
-    wildList.append(theName)
-
-for actor in two046['actors']:
-    theName = actor['name']
-    masterList.append(theName)
-    two046List.append(theName)
-
-# print("\nfalist:")
-# print(falist)
-# print("\nlist:")
-# print(list)
-
-# print(list)
-
-# print("The common actors between Fallen Angels and Chungking Express are:")
-# for i in faList:
-#     if i in list:
-#         print(i)
-# for i in fa1995:
-#     print(i)
-    # if i in list:
-    #     print(i)
-
-
-# 3am implementation:
-# 1. retrieve the names of all wkw actors
-# 2. find out which 6-10 names appear the most
-# 3. see which of those actors each wkw film featured and map them somehow
-
-print('\ntest two')
-
-print(Person.default_info)
-
-
-
-# print('Directors:')
-# for director in movie['directors']:
-#     print(director['name'])
+# for actor in fa1995['actors']:
+#     # print(actor['name'])
+#     # counter+=1
+#     # people = ia.search_person(actor['name'])
+#     faList.append(actor['name'])
+#     masterList.append(actor['name'])
+#     # print(people[0]['name'] + ': ' + people[0].personID)
+#     # if counter == len(itmfl['actors']):
+#
+# # print("Chungking Express:")
+# for actor in chungking['actors']:
+#     theName = actor['name']
+#     masterList.append(theName)
+#     chungList.append(theName)
+#
+# for actor in hppytgt['actors']:
+#     theName = actor['name']
+#     masterList.append(theName)
+#     hppyList.append(theName)
+#
+# for actor in itmfl['actors']:
+#     theName = actor['name']
+#     masterList.append(theName)
+#     itmflList.append(theName)
+#
+# for actor in wild['actors']:
+#     theName = actor['name']
+#     masterList.append(theName)
+#     wildList.append(theName)
+#
+# for actor in two046['actors']:
+#     theName = actor['name']
+#     masterList.append(theName)
+#     two046List.append(theName)
+#
+# # print("\nfalist:")
+# # print(falist)
+# # print("\nlist:")
+# # print(list)
+#
+# # print(list)
+#
+# # print("The common actors between Fallen Angels and Chungking Express are:")
+# # for i in faList:
+# #     if i in list:
+# #         print(i)
+# # for i in fa1995:
+# #     print(i)
+#     # if i in list:
+#     #     print(i)
+#
+#
+# # 3am implementation:
+# # 1. retrieve the names of all wkw actors
+# # 2. find out which 6-10 names appear the most
+# # 3. see which of those actors each wkw film featured and map them somehow
+#
+# print('\ntest two')
+#
+# print(Person.default_info)
+#
+#
+#
+# # print('Directors:')
+# # for director in movie['directors']:
+# #     print(director['name'])
