@@ -44,7 +44,7 @@ df = pd.DataFrame(wkwfilms_name)
 # output the dataframe to excel
 df.to_excel('wkw-filmography.xlsx', sheet_name = 'test')
 
-# ranking implementation:
+# worst ranking implementation out there:
 # 1. Pull all the actors from each movie and store their names in a
 # dict with each value 0
 # 2. see how many times each key pops up in list of actors
