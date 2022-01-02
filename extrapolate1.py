@@ -52,4 +52,7 @@ df.to_excel('wkw-filmography.xlsx', sheet_name = 'test')
 # 3. increment the proper key by 1 for every success
 # 4. get top 10 key:value pairs and store in a list
 # 5. make new pandas dataframe
-# 6. put into excel 
+# 6. put into excel
+
+for i in wkwfilms_verbose:
+    print(i)
