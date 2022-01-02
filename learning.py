@@ -1,5 +1,6 @@
 from imdb import IMDb
 from imdb.Person import Person
+import pandas as pd
 
 # create an instance of the IMDb class
 ia = IMDb()
@@ -7,7 +8,7 @@ ia = IMDb()
 movie = ia.search_movie('fallen angels 1995')
 movie2 = ia.search_movie('chungking express')
 movie3 = ia.search_movie('happy together 1997')
-movie4 = ia.searh_movie('in the mood for love')
+movie4 = ia.search_movie('in the mood for love')
 movie5 = ia.search_movie('days of being wild 1990')
 movie6 = ia.search_movie('2046 2004')
 
@@ -67,8 +68,6 @@ for actor in two046['actors']:
     theName = actor['name']
     masterList.append(theName)
     two046List.append(theName)
-
-
 
 # print("\nfalist:")
 # print(falist)

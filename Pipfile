@@ -5,6 +5,9 @@ name = "pypi"
 
 [packages]
 imdbpy = {git = "https://github.com/alberanid/imdbpy"}
+pandas = "*"
+xlwt = "*"
+openpyxl = "*"
 
 [dev-packages]
 
