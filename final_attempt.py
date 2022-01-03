@@ -26,6 +26,7 @@ filmsList = ['the grandmaster', '2046', 'eros', 'in the mood for love',
 filmObjects = []
 filmNames = []
 actors = []
+recurring_cast = []
 filmsDict = {}
 
 # if you need to pull id or names, etc -- manipulate this for loop
