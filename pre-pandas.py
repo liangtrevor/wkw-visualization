@@ -1,5 +1,5 @@
 from collections import Counter
-from data import actors, dictionary
+from data import actors, dictionary, filmsList
 import pprint
 
 cc = Counter()
@@ -29,10 +29,16 @@ print(newActorList)
 
 # TODO: filter dict data in data.py
 #   compare each key:value pair to newActorList, and filter names
-#   not in newActorList. then move onto next step below 
+#   not in newActorList. then move onto next step below
 
 # TODO: make a dataframe
 #   rows: films
 #   cols: actors
 #   elements: role
+
+for i in filmsList:
+    dictionary[i] = list(filter(lambda s: s in newActorList, dictionary[i]))
+
+pp.pprint(dictionary)
+
 # then data will be put into tableau and connected
