@@ -21,12 +21,17 @@ actorRole = {}
 for i in filmsList:
     # put movie object of film into current
     current = movob(i)
-    # make a movie:object pair
-    
+    # store all cast objects in cast
+    cast = current['cast']
+    # populate actor:role dict
+    # by iterating through cast
+    # actorRole value will be actor's role
+    for k in cast:
+        actorRole[k] = k['name']
 
-
-
-
+print("printing actorRole:")
+print("-----")
+pp.pprint(actorRole)
 
 # TODO: what we'll do:
 #   for each dict value (actor), make it
@@ -34,7 +39,9 @@ for i in filmsList:
 #   this dict should be an actor:role pair.
 
 for i in updatedDict:
-    finalDict[i] = {z: movieObjects[i] \
+    # finalDict is intended to be movie:actor:role
+    #
+    finalDict[i] = {z: actorRole[i] \
                     for z in updatedDict[i]}
 
 pp.pprint(finalDict)
