@@ -27,7 +27,7 @@ for i in filmsList:
     # by iterating through cast
     # actorRole value will be actor's role
     for k in cast:
-        actorRole[k] = k['name']
+        actorRole[k]['name'] = k['name']
 
 print("printing actorRole:")
 print("-----")
