@@ -2,8 +2,25 @@ import pandas as pd
 from imdb import IMDb
 import pprint
 
+# ============================================================================= #
+# ====================== GLOBAL VARIABLE DECLARATIONS ========================= #
+# ============================================================================= #
+# wkw's top feature films
 pp = pprint.PrettyPrinter(indent=1)
 ia = IMDb()
+filmsList = ['the grandmaster', '2046', 'eros', 'in the mood for love',
+             'happy together 1997', 'fallen angels 1995', 'ashes of time',
+             'chungking express', 'days of being wild', 'as tears go by']
+filmObjects = []  # store film objects
+filmNames = []  # store string names of films
+actors = []  # store name of actors
+filmsDict = {}  # store films in this dictionary for films:[actors] pairings later
+actorToRole = {}  # store actor roles
+
+
+# ============================================================================= #
+# ====================== FUNCTIONS ========================= #
+# ============================================================================= #
 
 # returns a movie object
 def movob(keyword):
@@ -18,22 +35,6 @@ def getdirector(director):
     thePerson = searchEm[0]
     return thePerson
 
-
-# wkw's top feature films
-filmsList = ['the grandmaster', '2046', 'eros', 'in the mood for love',
-             'happy together 1997', 'fallen angels 1995', 'ashes of time',
-             'chungking express', 'days of being wild', 'as tears go by']
-
-# store film objects
-filmObjects = []
-# store string names of films
-filmNames = []
-# store name of actors
-actors = []
-# store films in this dictionary for films:[actors] pairings later
-filmsDict = {}
-# store actor roles
-actorToRole = {}
 
 # if you need to pull id or names, etc -- manipulate this for loop
 for i in filmsList:
@@ -89,26 +90,25 @@ for i in filmNames:
 pp.pprint(filmsDict)
 
 # create dataframes
-
-dictDf_twoOrMore = pd.DataFrame.from_dict(filmsDict_twoOrMore, orient ='index')
-dictDf_moreThanTwo = pd.DataFrame.from_dict(filmsDict_moreThanTwo, orient ='index')
+dictDf_twoOrMore = pd.DataFrame.from_dict(filmsDict_twoOrMore, orient='index')
+dictDf_moreThanTwo = pd.DataFrame.from_dict(filmsDict_moreThanTwo, orient='index')
 
 listDf_twoOrMore = pd.DataFrame(ActorList_twoOrMore)
 listDf_moreThanTwo = pd.DataFrame(ActorList_moreThanTwo)
 
+#
 # converting data to .csv
+#
 
 # actors w/ 2 or more appearances
-dictDf_twoOrMore.to_csv("film-actors_two_or_more.csv")
+dictDf_twoOrMore.to_csv("./files/film-actors_two_or_more.csv")
 # actors w/ more than 2 appearances
-dictDf_moreThanTwo.to_csv("film-actors_more_than_2.csv")
+dictDf_moreThanTwo.to_csv("./files/film-actors_more_than_2.csv")
 
 # actors w/ 2 or more appearances
-listDf_twoOrMore.to_csv("actors_two_or_more.csv")
+listDf_twoOrMore.to_csv("./files/actors_two_or_more.csv")
 # actors w/ 2 or more appearances
-listDf_moreThanTwo.to_csv("actors_more_than_2.csv")
+listDf_moreThanTwo.to_csv("./files/filesactors_more_than_2.csv")
 
 # TODO: create dictionary of format:
 #  film:actor:role
-
-# for i in filmNames:
