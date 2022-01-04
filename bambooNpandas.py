@@ -1,6 +1,9 @@
+# format data for turning into pandas dataframe
+# dataframe will be used for visualization
+
 import numpy as np
 import pandas as pd
-from final_attempt import movob
+from filter0 import movob
 from imdb import IMDb
 from data import updatedDict, filmsList
 import pprint

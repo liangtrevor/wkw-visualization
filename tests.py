@@ -1,6 +1,10 @@
+# format data for turning into pandas dataframe
+# dataframe will be used for visualization
+# tests.py file is testing a different approach from bambooNpandas.py
+
 import numpy as np
 import pandas as pd
-from final_attempt import movob
+from filter0 import movob
 from imdb import IMDb
 from data import updatedDict, filmsList, repeatActors
 import pprint

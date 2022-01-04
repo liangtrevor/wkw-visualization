@@ -1,3 +1,5 @@
+# get wkw's most frequent actors
+
 from collections import Counter
 from data import actors, dictionary, filmsList
 import pprint

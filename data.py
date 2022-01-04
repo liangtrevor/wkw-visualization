@@ -1,3 +1,5 @@
+# list of data structures to be used later
+# not very pretty
 # from dataFilter import recurring_actors
 
 actors = ['Tony Chiu-Wai Leung',
