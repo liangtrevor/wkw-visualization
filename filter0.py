@@ -32,6 +32,8 @@ filmNames = []
 actors = []
 # store films in this dictionary for films:[actors] pairings later
 filmsDict = {}
+# store actor roles
+actorToRole = {}
 
 # if you need to pull id or names, etc -- manipulate this for loop
 for i in filmsList:
@@ -62,15 +64,11 @@ for i in actors:
 # create a new list which contains actors who have appeared > 2 times
 
 for i in actors:
-    ActorList_moreThanTwo = list(set(list(filter(lambda s: actors.count(s) >= 2, actors))))
+    ActorList_moreThanTwo = list(set(list(filter(lambda s: actors.count(s) > 2, actors))))
 
 pp.pprint(actors)
 
 # remove actor duplicates from actors list
-
-# TODO: filter dict data in data.py
-#   compare each key:value pair to newActorList, and filter names
-#   not in newActorList. then move onto next step below
 
 # TODO: make a dataframe
 #   rows: films
@@ -109,3 +107,8 @@ dictDf_moreThanTwo.to_csv("film-actors_more_than_2.csv")
 listDf_twoOrMore.to_csv("actors_two_or_more.csv")
 # actors w/ 2 or more appearances
 listDf_moreThanTwo.to_csv("actors_more_than_2.csv")
+
+# TODO: create dictionary of format:
+#  film:actor:role
+
+# for i in filmNames:
