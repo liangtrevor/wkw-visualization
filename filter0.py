@@ -35,7 +35,6 @@ filmsDict = {}
 # store actor roles
 actorToRole = {}
 
-# if you need to pull id or names, etc -- manipulate this for loop
 for i in filmsList:
     film = movob(i)
     # search for film and put object into filmObjects list
@@ -80,6 +79,8 @@ filmsDict_twoOrMore = filmsDict
 # # film: [actors] dict pair for actors who have appeared >= 2 times
 filmsDict_moreThanTwo = filmsDict
 
+# filter non-recurring actors from
+
 for i in filmNames:
     filmsDict_twoOrMore[i] = list(filter(lambda s: s in ActorList_twoOrMore, filmsDict[i]))
 
@@ -111,4 +112,39 @@ listDf_moreThanTwo.to_csv("actors_more_than_2.csv")
 # TODO: create dictionary of format:
 #  film:actor:role
 
-# for i in filmNames:
+# approach: create actor-movie dict w/ all actors and a duplicate dict
+# then, iterate over film:actor dict
+# and only get roles from actors in film:actor dict
+# once role is pulled, put the role in the duplicate dict
+# of format film:actor:role
+
+# ran into error when being selective w/ first iteration
+
+fad_twoOrMore = dictDf_twoOrMore
+masterDict = {}
+actorToRole = {}
+
+# iterate over all film objects
+for i in filmObjects:
+    # store film name
+    film = i['title']
+    tempList = []
+    name = ''
+    role = ''
+    # iterate through cast objects of current film
+    for k in i['cast']:
+        name = k['name']
+        role = k.currentRole
+        actorToRole[name] = role
+        masterDict[film] = actorToRole[name]
+
+# create film:actor from ActorList_twoOrMore
+for i in filmObjects:
+    for k in i['actors']:
+        # store role of current actor in currentRole
+        currentRole = k['role']
+        print(currentRole)
+
+# create film:actor from ActorList_moreThanTwo
+# for i in filmObjects:
+#
