@@ -34,8 +34,11 @@ for i in filmsList:
         #TODO: current problem: we are overwriting the dict every time.
         # if one of the names we care about is in repeatActors:
         if k['name'] in repeatActors:
+            print(k['name'])
             # populate actorRole with actor's name : actor's role
-            actorRole[k['name']] = k.currentRole['name']
+            # actorRole[k['name']] = k.currentRole['name']
+            # TODO: pls remove this
+            quit()
             print("if statement reached. current state of actorRole:")
             print(actorRole)
         # actorRole[k]['name'] = k['name']
