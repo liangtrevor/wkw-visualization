@@ -20,9 +20,9 @@ def getdirector(director):
 
 
 # wkw's top feature films
-filmsList = ('the grandmaster', '2046', 'eros', 'in the mood for love',
+filmsList = ['the grandmaster', '2046', 'eros', 'in the mood for love',
              'happy together 1997', 'fallen angels 1995', 'ashes of time',
-             'chungking express', 'days of being wild', 'as tears go by')
+             'chungking express', 'days of being wild', 'as tears go by']
 
 # store film objects
 filmObjects = []
@@ -35,6 +35,7 @@ filmsDict = {}
 # store actor roles
 actorToRole = {}
 
+# if you need to pull id or names, etc -- manipulate this for loop
 for i in filmsList:
     film = movob(i)
     # search for film and put object into filmObjects list
@@ -51,7 +52,7 @@ for i in filmObjects:
     for k in i['actors']:
         # put all actors from current film into actors list
         currentNames = k['name']
-        actors.append(currentNames.strip())
+        actors.append(currentNames)
         tempList.append(currentNames)
         # make key:value pair in filmsDict to create film to actor data structure
     currentFilm = i['title']
@@ -78,8 +79,6 @@ pp.pprint(actors)
 filmsDict_twoOrMore = filmsDict
 # # film: [actors] dict pair for actors who have appeared >= 2 times
 filmsDict_moreThanTwo = filmsDict
-
-# filter non-recurring actors from
 
 for i in filmNames:
     filmsDict_twoOrMore[i] = list(filter(lambda s: s in ActorList_twoOrMore, filmsDict[i]))
@@ -112,35 +111,4 @@ listDf_moreThanTwo.to_csv("actors_more_than_2.csv")
 # TODO: create dictionary of format:
 #  film:actor:role
 
-# approach: create actor-movie dict w/ all actors and a duplicate dict
-# then, iterate over film:actor dict
-# and only get roles from actors in film:actor dict
-# once role is pulled, put the role in the duplicate dict
-# of format film:actor:role
-
-# ran into error when being selective w/ first iteration
-
-fad = {}
-
-# iterate over all film objects
-for i in filmObjects:
-    film = i['title']
-    # store pairs in here
-    tempActorDict = {}
-    # tempRoleDict = {}
-    for k in i['cast']:
-        name = k['name']
-        # check to see if it is the correct name
-        if name in ActorList_twoOrMore:
-            # print("Current Name: " + name)
-            role = k.currentRole
-            # create a dictionary of actor:role
-            tempActorDict[name] = role
-    # create a dictionary of film:actor:role
-    print("status of tempActorDict")
-    pp.pprint(tempActorDict)
-    fad[film] = tempActorDict
-
-dictDf_fab = pd.DataFrame.from_dict(fad, orient ='index')
-
-dictDf_fab.to_csv("film-actor-role.csv")
+# for i in filmNames:
