@@ -79,8 +79,6 @@ filmsDict_twoOrMore = filmsDict
 # # film: [actors] dict pair for actors who have appeared >= 2 times
 filmsDict_moreThanTwo = filmsDict
 
-# filter non-recurring actors from
-
 for i in filmNames:
     filmsDict_twoOrMore[i] = list(filter(lambda s: s in ActorList_twoOrMore, filmsDict[i]))
 
@@ -108,17 +106,6 @@ dictDf_moreThanTwo.to_csv("./files/film-actors_more_than_2.csv")
 listDf_twoOrMore.to_csv("./files/actors_two_or_more.csv")
 # actors w/ 2 or more appearances
 listDf_moreThanTwo.to_csv("./files/actors_more_than_2.csv")
-
-# TODO: create dictionary of format:
-#  film:actor:role
-
-# approach: create actor-movie dict w/ all actors and a duplicate dict
-# then, iterate over film:actor dict
-# and only get roles from actors in film:actor dict
-# once role is pulled, put the role in the duplicate dict
-# of format film:actor:role
-
-# ran into error when being selective w/ first iteration
 
 fad = {}
 
