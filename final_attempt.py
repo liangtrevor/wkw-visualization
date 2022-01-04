@@ -7,11 +7,11 @@ pp = pprint.PrettyPrinter(indent=1)
 
 ia = IMDb()
 
+
 def movob(keyword):
     subResult = ia.search_movie(keyword)
     final = ia.get_movie(subResult[0].movieID)
     return final
-
 
 # returns a director object
 def getdirector(director):
@@ -19,9 +19,10 @@ def getdirector(director):
     thePerson = searchEm[0]
     return thePerson
 
+
 filmsList = ['the grandmaster', '2046', 'eros', 'in the mood for love',
-        'happy together 1997', 'fallen angels 1995', 'ashes of time',
-        'chungking express', 'days of being wild', 'as tears go by']
+             'happy together 1997', 'fallen angels 1995', 'ashes of time',
+             'chungking express', 'days of being wild', 'as tears go by']
 
 filmObjects = []
 filmNames = []
@@ -39,7 +40,7 @@ for i in filmsList:
 
 print("\n")
 
-#TODO: get film:list pair by making for loops range(len(...))
+# TODO: get film:list pair by making for loops range(len(...))
 # the intent of this is to get the current film
 
 # iterate through filmObjects
