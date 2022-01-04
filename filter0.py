@@ -121,22 +121,17 @@ listDf_moreThanTwo.to_csv("actors_more_than_2.csv")
 # ran into error when being selective w/ first iteration
 
 fad_twoOrMore = dictDf_twoOrMore
-masterDict = {}
-actorToRole = {}
+roleDict = {}
 
 # iterate over all film objects
 for i in filmObjects:
-    # store film name
-    film = i['title']
+    # store list of roles in here
     tempList = []
-    name = ''
-    role = ''
-    # iterate through cast objects of current film
     for k in i['cast']:
         name = k['name']
         role = k.currentRole
-        actorToRole[name] = role
-        masterDict[film] = actorToRole[name]
+        roleDict[name] = role
+
 
 # create film:actor from ActorList_twoOrMore
 for i in filmObjects:
