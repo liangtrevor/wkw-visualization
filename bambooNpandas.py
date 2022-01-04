@@ -40,7 +40,6 @@ pp.pprint(actorRole)
 
 for i in updatedDict:
     # finalDict is intended to be movie:actor:role
-    #
     finalDict[i] = {z: actorRole[i] \
                     for z in updatedDict[i]}
 

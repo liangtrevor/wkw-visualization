@@ -1,3 +1,5 @@
+# from dataFilter import recurring_actors
+
 actors = ['Tony Chiu-Wai Leung',
  'Cung Le',
  'Qingxiang Wang',
@@ -511,3 +513,14 @@ updatedDict = \
 #  'Happy Together': <Movie id:0118845[http] title:_Happy Together (1997)_>,
 #  'In the Mood for Love': <Movie id:0118694[http] title:_In the Mood for Love (2000)_>,
 #  'The Grandmaster': <Movie id:1462900[http] title:_The Grandmaster (2013)_>}
+
+repeatActors = \
+['Charlie Yeung',
+ 'Jacky Cheung',
+ 'Siu Ping-Lam',
+ 'Tony Chiu-Wai Leung',
+ 'Maggie Cheung',
+ 'Chang Chen',
+ 'Leslie Cheung',
+ 'To-Hoi Kong',
+ 'Carina Lau']

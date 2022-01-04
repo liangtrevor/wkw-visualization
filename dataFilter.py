@@ -5,9 +5,6 @@ import pprint
 cc = Counter()
 pp = pprint.PrettyPrinter(indent=1)
 
-# print(actors)
-# print(dictionary)
-
 recurring_actors = []
 
 # TODO:

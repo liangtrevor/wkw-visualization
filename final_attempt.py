@@ -19,7 +19,7 @@ def getdirector(director):
     thePerson = searchEm[0]
     return thePerson
 
-
+# wkw's top feature films
 filmsList = ['the grandmaster', '2046', 'eros', 'in the mood for love',
              'happy together 1997', 'fallen angels 1995', 'ashes of time',
              'chungking express', 'days of being wild', 'as tears go by']
@@ -57,16 +57,6 @@ for i in filmObjects:
         # make key:value pair in filmsDict to create film to actor data structure
     currentFilm = i['title']
     filmsDict[currentFilm] = tempList
-    # actors.append(i['actors'][0]['name'])
-
-# just for testing
-# print("actors:")
-# print("-----")
-# pp.pprint(actors)
-#
-# print("dictionary:")
-# print("-----")
-# pp.pprint(filmsDict)
 
 # TODO:
 #  write a for loop that iterates through the actor list ten times
