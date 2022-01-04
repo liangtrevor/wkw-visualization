@@ -100,14 +100,14 @@ listDf_moreThanTwo = pd.DataFrame(ActorList_moreThanTwo)
 # converting data to .csv
 
 # actors w/ 2 or more appearances
-dictDf_twoOrMore.to_csv("film-actors_two_or_more.csv")
+dictDf_twoOrMore.to_csv("./files/film-actors_two_or_more.csv")
 # actors w/ more than 2 appearances
-dictDf_moreThanTwo.to_csv("film-actors_more_than_2.csv")
+dictDf_moreThanTwo.to_csv("./files/film-actors_more_than_2.csv")
 
 # actors w/ 2 or more appearances
-listDf_twoOrMore.to_csv("actors_two_or_more.csv")
+listDf_twoOrMore.to_csv("./files/actors_two_or_more.csv")
 # actors w/ 2 or more appearances
-listDf_moreThanTwo.to_csv("actors_more_than_2.csv")
+listDf_moreThanTwo.to_csv("./files/actors_more_than_2.csv")
 
 # TODO: create dictionary of format:
 #  film:actor:role
@@ -137,10 +137,9 @@ for i in filmObjects:
             # create a dictionary of actor:role
             tempActorDict[name] = role
     # create a dictionary of film:actor:role
-    print("status of tempActorDict")
     pp.pprint(tempActorDict)
     fad[film] = tempActorDict
 
 dictDf_fab = pd.DataFrame.from_dict(fad, orient ='index')
 
-dictDf_fab.to_csv("film-actor-role.csv")
+dictDf_fab.to_csv("./files/film-actor-role.csv")
