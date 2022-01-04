@@ -1,4 +1,3 @@
-import numpy as np
 import pandas as pd
 from imdb import IMDb
 import pprint
@@ -6,17 +5,19 @@ import pprint
 pp = pprint.PrettyPrinter(indent=1)
 ia = IMDb()
 
-
+# returns a movie object
 def movob(keyword):
     subResult = ia.search_movie(keyword)
     final = ia.get_movie(subResult[0].movieID)
     return final
+
 
 # returns a director object
 def getdirector(director):
     searchEm = ia.search_person(director)
     thePerson = searchEm[0]
     return thePerson
+
 
 # wkw's top feature films
 filmsList = ['the grandmaster', '2046', 'eros', 'in the mood for love',
@@ -40,11 +41,6 @@ for i in filmsList:
     # append film name to filmNames. formatted according to imdb
     filmNames.append(film['title'])
 
-print("\n")
-
-# TODO: get film:list pair by making for loops range(len(...))
-# the intent of this is to get the current film
-
 # iterate through filmObjects
 for i in filmObjects:
     # templist will store actors of current movie
@@ -60,31 +56,8 @@ for i in filmObjects:
     currentFilm = i['title']
     filmsDict[currentFilm] = tempList
 
-# TODO:
-#  write a for loop that iterates through the actor list ten times
-# TODO:
-#  make a lambda function that takes out most occuring element
-# TODO:
-#  store that element in a list called recurring_actors
-
-# get wkw's most frequent actors
-
-import pprint
-
-pp = pprint.PrettyPrinter(indent=1)
-
-# TODO:
-#  write a for loop that iterates through the actor list ten times
-# TODO:
-#  filter elements that do not occur more than once
-#  make a lambda function that takes out most occuring element
-# TODO:
-#  store that element in a list called recurring_cast
-
-# create a new list which contains actors who have appeared >= 2 times
 for i in actors:
     ActorList_twoOrMore = list(set(list(filter(lambda s: actors.count(s) >= 2, actors))))
-    # newActorList = list(set(actors))
 
 # create a new list which contains actors who have appeared > 2 times
 
@@ -104,9 +77,9 @@ pp.pprint(actors)
 #   cols: actors
 #   elements: role
 
-# # film: [actors] pair for actors who have appeared >= 2 times
+# # film: [actors] dict pair for actors who have appeared >= 2 times
 filmsDict_twoOrMore = filmsDict
-# # film: [actors] pair for actors who have appeared >= 2 times
+# # film: [actors] dict pair for actors who have appeared >= 2 times
 filmsDict_moreThanTwo = filmsDict
 
 for i in filmNames:
@@ -117,20 +90,20 @@ for i in filmNames:
 
 pp.pprint(filmsDict)
 
-# then data will be put into tableau and connected
-
-# converting data to .csv
+# create dataframes
 
 dictDf_twoOrMore = pd.DataFrame.from_dict(filmsDict_twoOrMore, orient ='index')
 dictDf_moreThanTwo = pd.DataFrame.from_dict(filmsDict_moreThanTwo, orient ='index')
-# df = df.transpose
+
+listDf_twoOrMore = pd.DataFrame(ActorList_twoOrMore)
+listDf_moreThanTwo = pd.DataFrame(ActorList_moreThanTwo)
+
+# converting data to .csv
+
 # actors w/ 2 or more appearances
 dictDf_twoOrMore.to_csv("film-actors_two_or_more.csv")
 # actors w/ more than 2 appearances
 dictDf_moreThanTwo.to_csv("film-actors_more_than_2.csv")
-
-listDf_twoOrMore = pd.DataFrame(ActorList_twoOrMore)
-listDf_moreThanTwo = pd.DataFrame(ActorList_moreThanTwo)
 
 # actors w/ 2 or more appearances
 listDf_twoOrMore.to_csv("actors_two_or_more.csv")
