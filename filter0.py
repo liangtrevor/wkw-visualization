@@ -20,9 +20,9 @@ def getdirector(director):
 
 
 # wkw's top feature films
-filmsList = ['the grandmaster', '2046', 'eros', 'in the mood for love',
+filmsList = ('the grandmaster', '2046', 'eros', 'in the mood for love',
              'happy together 1997', 'fallen angels 1995', 'ashes of time',
-             'chungking express', 'days of being wild', 'as tears go by']
+             'chungking express', 'days of being wild', 'as tears go by')
 
 # store film objects
 filmObjects = []
@@ -51,7 +51,7 @@ for i in filmObjects:
     for k in i['actors']:
         # put all actors from current film into actors list
         currentNames = k['name']
-        actors.append(currentNames)
+        actors.append(currentNames.strip())
         tempList.append(currentNames)
         # make key:value pair in filmsDict to create film to actor data structure
     currentFilm = i['title']
@@ -120,26 +120,27 @@ listDf_moreThanTwo.to_csv("actors_more_than_2.csv")
 
 # ran into error when being selective w/ first iteration
 
-fad_twoOrMore = dictDf_twoOrMore
-roleDict = {}
+fad = {}
 
 # iterate over all film objects
 for i in filmObjects:
-    # store list of roles in here
-    tempList = []
+    film = i['title']
+    # store pairs in here
+    tempActorDict = {}
+    # tempRoleDict = {}
     for k in i['cast']:
         name = k['name']
-        role = k.currentRole
-        roleDict[name] = role
+        # check to see if it is the correct name
+        if name in ActorList_twoOrMore:
+            # print("Current Name: " + name)
+            role = k.currentRole
+            # create a dictionary of actor:role
+            tempActorDict[name] = role
+    # create a dictionary of film:actor:role
+    print("status of tempActorDict")
+    pp.pprint(tempActorDict)
+    fad[film] = tempActorDict
 
+dictDf_fab = pd.DataFrame.from_dict(fad, orient ='index')
 
-# create film:actor from ActorList_twoOrMore
-for i in filmObjects:
-    for k in i['actors']:
-        # store role of current actor in currentRole
-        currentRole = k['role']
-        print(currentRole)
-
-# create film:actor from ActorList_moreThanTwo
-# for i in filmObjects:
-#
+dictDf_fab.to_csv("film-actor-role.csv")
