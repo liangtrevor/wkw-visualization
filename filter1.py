@@ -19,10 +19,10 @@ recurring_actors = []
 
 # take out elements which only occur once
 for i in actors:
-    newActorList = list(filter(lambda s: actors.count(s) > 2, actors))
+    newActorList = list(filter(lambda s: actors.count(s) >= 2, actors))
     newActorList = list(set(newActorList))
 
-print(newActorList)
+pp.pprint(newActorList)
 
 # remove actor duplicates from actors list
 
