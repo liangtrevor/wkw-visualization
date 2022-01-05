@@ -95,6 +95,8 @@ dictDf_moreThanTwo = pd.DataFrame.from_dict(filmsDict_moreThanTwo, orient ='inde
 listDf_twoOrMore = pd.DataFrame(ActorList_twoOrMore)
 listDf_moreThanTwo = pd.DataFrame(ActorList_moreThanTwo)
 
+filmName = pd.DataFrame(filmNames)
+
 # converting data to .csv
 
 # actors w/ 2 or more appearances
@@ -106,6 +108,9 @@ dictDf_moreThanTwo.to_csv("./files/film-actors_more_than_2.csv")
 listDf_twoOrMore.to_csv("./files/actors_two_or_more.csv")
 # actors w/ 2 or more appearances
 listDf_moreThanTwo.to_csv("./files/actors_more_than_2.csv")
+
+# create .csv of analyzed movie names
+filmName.to_csv("./files/film_names.csv")
 
 fad = {}
 
