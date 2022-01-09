@@ -20,7 +20,11 @@ def getdirector(director):
 
 
 # wkw's top feature films
-filmsList = ('the grandmaster', '2046', 'eros', 'in the mood for love',
+# filmsList = ('the grandmaster', '2046', 'eros', 'in the mood for love',
+#              'happy together 1997', 'fallen angels 1995', 'ashes of time',
+#              'chungking express', 'days of being wild', 'as tears go by')
+
+filmsList =  ('2046', 'eros', 'in the mood for love',
              'happy together 1997', 'fallen angels 1995', 'ashes of time',
              'chungking express', 'days of being wild', 'as tears go by')
 
