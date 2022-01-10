@@ -1,5 +1,3 @@
-# creates csv file of top actors and respective roles/film
-# based on director to film
 import pandas as pd
 from imdb import IMDb
 import pprint
@@ -20,33 +18,16 @@ def getdirector(director):
     thePerson = searchEm[0]
     return thePerson
 
-userInput = input("Enter a director: ")
-
-# if we are giving users a choice
-# director = ia.search_person(userInput)
-# for i in range(len(director)):
-#     print(director[i], "(index: " + str(i) + ")")
-
-director = getdirector(userInput)
-
-directorID = director.personID
-
-directorResults = ia.get_person_filmography(directorID)
 
 # wkw's top feature films
-# filmsList = ('the grandmaster', '2046', 'eros', 'in the mood for love',
-#              'happy together 1997', 'fallen angels 1995', 'ashes of time',
-#              'chungking express', 'days of being wild', 'as tears go by')
-
-# filmsList = ('2046', 'eros', 'in the mood for love',
-#              'happy together 1997', 'fallen angels 1995', 'ashes of time',
-#              'chungking express', 'days of being wild', 'as tears go by')
-
+filmsList = ('the grandmaster', '2046', 'eros', 'in the mood for love',
+             'happy together 1997', 'fallen angels 1995', 'ashes of time',
+             'chungking express', 'days of being wild', 'as tears go by')
 
 # store film objects
 filmObjects = []
 # store string names of films
-filmTitles = []
+filmNames = []
 # store name of actors
 actors = []
 # store films in this dictionary for films:[actors] pairings later
@@ -54,32 +35,16 @@ filmsDict = {}
 # store actor roles
 actorToRole = {}
 
-# gonna try to do it in one for loop
-# we need the lists/dicts for the .csv later
-# but we'll populate it in one loop
-for i in directorResults['data']['filmography']['director']:
-    # currentID = i.movieID
-    # if there is missing data on imdb, skip.
-    try:
-        actors.append(i['actors'])
-    except:
-        continue
-    else:
-        # collect film objects
-        filmObjects.append(i)
-        # collect film titles
-        filmTitles.append(i['title'])
-
-# for i in filmsList:
-#     film = movob(i)
-#     # search for film and put object into filmObjects list
-#     filmObjects.append(film)
-#     # append film name to filmNames. formatted according to imdb
-#     filmNames.append(film['title'])
+for i in filmsList:
+    film = movob(i)
+    # search for film and put object into filmObjects list
+    filmObjects.append(film)
+    # append film name to filmNames. formatted according to imdb
+    filmNames.append(film['title'])
 
 # iterate through filmObjects
 for i in filmObjects:
-    # tempList will store actors of current movie
+    # templist will store actors of current movie
     tempList = []
     # iterate through current film's actors and append their string names to
     # tempList
@@ -114,10 +79,10 @@ filmsDict_twoOrMore = filmsDict
 # # film: [actors] dict pair for actors who have appeared >= 2 times
 filmsDict_moreThanTwo = filmsDict
 
-for i in filmTitles:
+for i in filmNames:
     filmsDict_twoOrMore[i] = list(filter(lambda s: s in ActorList_twoOrMore, filmsDict[i]))
 
-for i in filmTitles:
+for i in filmNames:
     filmsDict_moreThanTwo[i] = list(filter(lambda s: s in ActorList_moreThanTwo, filmsDict[i]))
 
 pp.pprint(filmsDict)
@@ -130,7 +95,7 @@ dictDf_moreThanTwo = pd.DataFrame.from_dict(filmsDict_moreThanTwo, orient ='inde
 listDf_twoOrMore = pd.DataFrame(ActorList_twoOrMore)
 listDf_moreThanTwo = pd.DataFrame(ActorList_moreThanTwo)
 
-filmName = pd.DataFrame(filmTitles)
+filmName = pd.DataFrame(filmNames)
 
 # converting data to .csv
 
@@ -158,8 +123,7 @@ for i in filmObjects:
     for k in i['cast']:
         name = k['name']
         # check to see if it is the correct name
-        # if name in ActorList_twoOrMore:
-        if name in ActorList_moreThanTwo:
+        if name in ActorList_twoOrMore:
             # print("Current Name: " + name)
             role = k.currentRole
             # create a dictionary of actor:role
