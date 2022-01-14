@@ -59,10 +59,6 @@ for i in filmObjects:
 
 for i in actors:
     ActorList_twoOrMore = list(set(list(filter(lambda s: actors.count(s) >= 2, actors))))
-
-# create a new list which contains actors who have appeared > 2 times
-
-for i in actors:
     ActorList_moreThanTwo = list(set(list(filter(lambda s: actors.count(s) > 2, actors))))
 
 pp.pprint(actors)
@@ -81,8 +77,6 @@ filmsDict_moreThanTwo = filmsDict
 
 for i in filmNames:
     filmsDict_twoOrMore[i] = list(filter(lambda s: s in ActorList_twoOrMore, filmsDict[i]))
-
-for i in filmNames:
     filmsDict_moreThanTwo[i] = list(filter(lambda s: s in ActorList_moreThanTwo, filmsDict[i]))
 
 pp.pprint(filmsDict)
